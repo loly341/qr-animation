@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(180deg, #000428, #004e92);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        #qrcode {
+            margin: 20px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .instructions {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Escanea el código QR</h1>
+        <div id="qrcode"></div>
+        <p class="instructions">Escanea este código QR con tu celular para ver la animación interactiva.</p>
+    </div>
+
+    <!-- Importar la biblioteca qrcode.js -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+        // URL del archivo HTML con la animación
+        const animationURL = "https://tusitio.com/animation.html"; // Cambia esta URL por la tuya
+
+        // Generar el código QR
+        QRCode.toCanvas(document.getElementById('qrcode'), animationURL, function (error) {
+            if (error) console.error(error);
+            console.log("¡Código QR generado con éxito!");
+        });
+    </script>
+</body>
+</html>
